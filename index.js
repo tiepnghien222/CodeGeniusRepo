@@ -1,4 +1,9 @@
-function largestNumber(nums) {
-  if (nums.every((num) => num === 0)) return "0";
-  return nums.sort((a, b) => `${b}${a}` - `${a}${b}`).join("");
+function isSubsequence(s, t) {
+  let i = 0;
+  let j = 0;
+  while (i < s.length && j < t.length) {
+    if (s[i] === t[j]) i++;
+    j++;
+  }
+  return i === s.length;
 }
