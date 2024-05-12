@@ -1,6 +1,17 @@
-const factorialRecursive = (n) => {
-  if (n === 0 || n === 1) {
-    return 1;
+function levelOrder(root) {
+  if (!root) return [];
+  const result = [];
+  const queue = [root];
+  while (queue.length) {
+    const size = queue.length;
+    const level = [];
+    for (let i = 0; i < size; i++) {
+      const node = queue.shift();
+      level.push(node.val);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    result.push(level);
   }
-  return n * factorialRecursive(n - 1);
-};
+  return result;
+}
